@@ -2,6 +2,10 @@ const DEFAULT_SIZE = 16;
 const DEFAULT_COLOR = "black";
 
 let color = DEFAULT_COLOR;
+let size = DEFAULT_SIZE;
+
+let drag = false;
+
 
 function updateColor(newColor){
     color = newColor;
@@ -47,3 +51,12 @@ let colorPick = document.getElementById("colorPick");
 colorPick.addEventListener("input", function(){
   updateColor(colorPick.value);
 }, false);
+
+
+//ERASE ENTIRE GRID AND MAKE IT ALL WHITE
+const resetGrid = document.querySelector('.reset');
+resetGrid.addEventListener('click', () => {
+    cells.forEach( cell => {
+        cell.style.backgroundColor = "white";
+    })
+})
