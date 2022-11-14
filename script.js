@@ -4,12 +4,15 @@ const DEFAULT_COLOR = "black";
 let color = DEFAULT_COLOR;
 let size = DEFAULT_SIZE;
 
-let drag = false;
-
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
 
 function updateColor(newColor){
     color = newColor;
 }
+
+
 
 //TODO:
 //      slider to change grid size (1-64) and call createGrid
@@ -18,9 +21,7 @@ function updateColor(newColor){
 const gridContainer = document.querySelector(".grid-container"); //select grid container
 
 function createGrid(size = DEFAULT_SIZE){
-    
 
-    
     gridContainer.style.display = 'grid';
     gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`; //make grid container grid with SIZE rows
     gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`; //make grid container grid with SIZE columns
@@ -28,6 +29,7 @@ function createGrid(size = DEFAULT_SIZE){
     for(let i = 0; i < size * size; i++){
         const gridCell = document.createElement("div");
         gridCell.classList.add('cell');
+        gridCell.setAttribute('draggable', 'false');
         gridContainer.appendChild(gridCell);
     }
 }
@@ -41,11 +43,16 @@ createGrid();
 cells = document.querySelectorAll(".cell");
 
 //
-cells.forEach( cell => cell.addEventListener('mouseover', function(e){
-    cell.style.backgroundColor = color;
-    console.log(this);
-})
+cells.forEach( cell => cell.addEventListener('mouseover', changeColor)
 )
+cells.forEach( cell => cell.addEventListener('mousedown', changeColor)
+)
+
+
+function changeColor(e) {
+    if(e.type === "mouseover" && !mouseDown) return;
+    e.target.style.backgroundColor = color;
+}
 
 let colorPick = document.getElementById("colorPick");
 colorPick.addEventListener("input", function(){
