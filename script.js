@@ -30,14 +30,13 @@ function createGrid(size = DEFAULT_SIZE){
 
 let cells = document.querySelectorAll(".cell");
 
-
-
-
+//Creates the default 16x16 grid
 createGrid();
 
+//grabs the divs created
 cells = document.querySelectorAll(".cell");
-console.log(document.querySelectorAll(".cell"));
 
+//
 cells.forEach( cell => cell.addEventListener('mouseover', function(e){
     cell.style.backgroundColor = color;
     console.log(this);
