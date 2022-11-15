@@ -9,34 +9,37 @@
 </head>
 <body>
     <h1 class="title">PIXEL SKETCHPAD</h1>
-    
-    <div class="options-container">
-
-    </div>
 
     <div class="grid-container" draggable="false">
         
     </div>
 
-    <div class="color-input">
-        <input type="color" id="colorPick" value="#000000">
-        <label for="colorPick">Color</label>
+    <div class="options">
+        <div class="color-input">
+            <input type="color" id="colorPick" value="#000000">
+            <label for="colorPick">Color</label>
+        </div>
+
+        <div>
+            <button class="reset">CLEAR</button>
+        </div>
+
+        <div>
+            <button class="rgbMode">RAINBOW MODE</button>
+        </div>
+
+        <div>
+            <input type="range" name="gridSize" id="gridSize" min="1" max="64" value="16" oninput="this.nextElementSibling.value = this.value"
+            onchange="changeSize()">
+            <output>16</output>
+            <label for="gridSize"> Grid Size </label>
+        </div>
     </div>
 
-    <div>
-        <button class="reset">CLEAR</button>
-    </div>
+    <footer>
+        Created by <a href="https://github.com/DanTheNoodleMan/sketchpad">DanTheNoodleMan</a>
+    </footer>
 
-    <div>
-        <button class="rgbMode">RAINBOW MODE</button>
-    </div>
-
-    <div>
-        <input type="range" name="gridSize" id="gridSize" min="1" max="64" value="16" oninput="this.nextElementSibling.value = this.value"
-        onchange="changeSize()">
-        <output>16</output>
-        <label for="gridSize"> Grid Size </label>
-    </div>
 
     <script src="script.js"></script>
 </body>

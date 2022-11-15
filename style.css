@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
 /* Font from https://www.1001fonts.com/karmatic-arcade-font.html */
 @font-face {
     font-family: 'karmatic_arcaderegular';
@@ -8,16 +10,20 @@
 body{
     margin:0;
     padding:0;
+    width: 100vw;
+    height: 100vh;
     display:flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: column;
-    background-color: rgb(196, 196, 196);
+    background-color: rgb(247, 247, 247);
+    font-family: 'Poppins', sans-serif;
 }
 
 .grid-container{
     width:500px;
     height: 500px;
+    box-shadow: 2px 2px 5px rgb(153, 153, 153);
 }
 
 .cell{
