@@ -12,13 +12,20 @@ function updateColor(newColor){
     color = newColor;
 }
 
+function updateSize(newSize){
+    size = newSize;
+}
+
 
 
 //TODO:
-//      slider to change grid size (1-64) and call createGrid
-//      color picker (look up how to implement one) --> need option to change color
+
+const slider = document.getElementById("gridSize");
+console.log(slider.value);
 
 const gridContainer = document.querySelector(".grid-container"); //select grid container
+
+let cells = document.querySelectorAll(".cell");
 
 function createGrid(size = DEFAULT_SIZE){
 
@@ -30,23 +37,21 @@ function createGrid(size = DEFAULT_SIZE){
         const gridCell = document.createElement("div");
         gridCell.classList.add('cell');
         gridCell.setAttribute('draggable', 'false');
+        gridCell.addEventListener('mouseover', changeColor)
+        gridCell.addEventListener('mousedown', changeColor)
         gridContainer.appendChild(gridCell);
     }
 }
 
-let cells = document.querySelectorAll(".cell");
+
 
 //Creates the default 16x16 grid
 createGrid();
 
 //grabs the divs created
-cells = document.querySelectorAll(".cell");
+cells = document.querySelectorAll(".cell"); //grabs the inital default 16x16 cells to be able to erase them 
 
 //
-cells.forEach( cell => cell.addEventListener('mouseover', changeColor)
-)
-cells.forEach( cell => cell.addEventListener('mousedown', changeColor)
-)
 
 
 function changeColor(e) {
@@ -54,6 +59,15 @@ function changeColor(e) {
     e.target.style.backgroundColor = color;
 }
 
+
+function changeSize(e) {
+    gridContainer.innerHTML = '';
+    createGrid(slider.value);
+    cells = document.querySelectorAll(".cell"); //grabs all new cells, allows to clear drawing board at every size
+}
+
+
+//COLORPICKER
 let colorPick = document.getElementById("colorPick");
 colorPick.addEventListener("input", function(){
   updateColor(colorPick.value);
