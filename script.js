@@ -3,6 +3,7 @@ const DEFAULT_COLOR = "black";
 
 let color = DEFAULT_COLOR;
 let size = DEFAULT_SIZE;
+let rgbMode = false;
 
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true)
@@ -17,6 +18,24 @@ function updateSize(newSize){
 }
 
 
+const rgb = document.querySelector('.rgbMode');
+rgb.addEventListener('click', ()=>{
+    rgbMode = !rgbMode;
+    if(rgbMode === false){
+        color = colorPick.value
+    }
+    console.log(rgbMode);
+})
+
+function randomColor(){
+    
+    let x=Math.round(0xffffff * Math.random()).toString(16);
+    let y=(6-x.length);
+    let z="000000";
+    let z1 = z.substring(0,y);
+    let color= "#" + z1 + x;
+    updateColor(color); 
+}
 
 //TODO:
 
@@ -56,7 +75,12 @@ cells = document.querySelectorAll(".cell"); //grabs the inital default 16x16 cel
 
 function changeColor(e) {
     if(e.type === "mouseover" && !mouseDown) return;
-    e.target.style.backgroundColor = color;
+    if(rgbMode === false){
+        e.target.style.backgroundColor = color;
+    } else if(rgbMode === true){
+        randomColor();
+        e.target.style.backgroundColor = color;
+    }
 }
 
 
@@ -67,11 +91,7 @@ function changeSize(e) {
 }
 
 
-//COLORPICKER
-let colorPick = document.getElementById("colorPick");
-colorPick.addEventListener("input", function(){
-  updateColor(colorPick.value);
-}, false);
+
 
 
 //ERASE ENTIRE GRID AND MAKE IT ALL WHITE
