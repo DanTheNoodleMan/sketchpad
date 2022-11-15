@@ -40,3 +40,7 @@ h1{
     font-family: 'karmatic_arcaderegular';
     font-size:48px;
 }
+
+.options{
+    display:flex;
+}
