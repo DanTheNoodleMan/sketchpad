@@ -91,9 +91,6 @@ function changeSize(e) {
 }
 
 
-
-
-
 //ERASE ENTIRE GRID AND MAKE IT ALL WHITE
 const resetGrid = document.querySelector('.reset');
 resetGrid.addEventListener('click', () => {
@@ -101,3 +98,9 @@ resetGrid.addEventListener('click', () => {
         cell.style.backgroundColor = "white";
     })
 })
+
+//COLORPICKER
+let colorPick = document.getElementById("colorPick");
+colorPick.addEventListener("input", function(){
+  updateColor(colorPick.value);
+}, false);
