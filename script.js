@@ -104,5 +104,12 @@ resetGrid.addEventListener('click', () => {
 //COLORPICKER
 let colorPick = document.getElementById("colorPick");
 colorPick.addEventListener("input", function(){
-  updateColor(colorPick.value);
+    rgbMode = false;
+    updateColor(colorPick.value);
 }, false);
+
+const erase = document.querySelector('.erase');
+erase.addEventListener('click', () => {
+    rgbMode =  false;
+    updateColor("#ffffff");
+});
