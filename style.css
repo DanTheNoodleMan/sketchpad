@@ -27,12 +27,15 @@ body{
 }
 
 .cell{
-    border:1px rgb(201, 201, 201) solid;
     margin:0;
     background-color: white;
     width:100%;
     height: 100%;
     user-select: none;
+}
+
+.cell-border{
+    border:1px rgb(201, 201, 201) solid;
 }
 
 
@@ -80,7 +83,6 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .erase, .reset{
-    
     border-radius: 5px;
     width:112px;
     height:27px;
@@ -88,21 +90,34 @@ input[type="color"]::-webkit-color-swatch {
     background-color: white;
 }
 
-#colorPick, button{
+.gridLines{
+    border: 1px solid black;
+    border-radius: 5px;
+    width:100%;
+    height:27px;
+    background-color: white;
+    transform: scale(1);
+    transition: all 500ms ease;
+}
+
+.gridLines:hover, #colorPick:hover, .erase:hover, .reset:hover, .rgbMode:hover{
+    transform: scale(1.05);
+    border: 1px solid blue;
+}
+
+.gridLines:active, #colorPick:active, .erase:active, .reset:active, .rgbMode:active{
+    background-color: #3e5a8e;
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
+  }
+
+#colorPick, .erase, .reset, .rgbMode{
     border:1px solid black;
     border-radius: 5px;
     transform: scale(1);
     transition: all 500ms ease;
 }
 
-#colorPick:hover, button:hover{
-    transform: scale(1.1);
-}
-
-#colorPick:focus, button:focus{
-    border:1px solid blue;
-    transform: scale(1.1);
-}
 
 input[type="range"] {
     width: 100%;

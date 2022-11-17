@@ -113,3 +113,11 @@ erase.addEventListener('click', () => {
     rgbMode =  false;
     updateColor("#ffffff");
 });
+
+
+const gridLineToggle = document.querySelector('.gridLines');
+gridLineToggle.addEventListener('click', () => {
+    cells.forEach( cell => {
+        cell.classList.toggle("cell-border");
+    })
+})
