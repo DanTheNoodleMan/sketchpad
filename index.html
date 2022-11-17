@@ -15,25 +15,35 @@
     </div>
 
     <div class="options">
-        <div class="color-input">
-            <input type="color" id="colorPick" value="#000000">
-            <label for="colorPick">Color</label>
-        </div>
 
-        <div>
-            <button class="reset">CLEAR</button>
-        </div>
+        <div class="left-options">
+            <div class="color-input">
+                <input type="color" id="colorPick" value="#000000">
+            </div>
 
-        <div>
-            <button class="rgbMode">RAINBOW MODE</button>
+            <div>
+                <button class="rgbMode">RAINBOW MODE</button>
+            </div>
         </div>
-
-        <div>
+        
+        <div class="center-option">
             <input type="range" name="gridSize" id="gridSize" min="1" max="64" value="16" oninput="this.nextElementSibling.value = this.value"
             onchange="changeSize()">
             <output>16</output>
             <label for="gridSize"> Grid Size </label>
         </div>
+
+        
+
+        <div class="right-options">
+            <div>
+                <button class="erase">ERASE</button>
+            </div>
+            <div>
+                <button class="reset">CLEAR</button>
+            </div>
+        </div>
+        
     </div>
 
     <footer>
