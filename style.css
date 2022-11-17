@@ -23,7 +23,7 @@ body{
 .grid-container{
     width:500px;
     height: 500px;
-    box-shadow: 2px 2px 5px rgb(153, 153, 153);
+    box-shadow: 1px 1px 7px rgb(0, 0, 0);
 }
 
 .cell{
@@ -39,6 +39,7 @@ body{
 h1{
     font-family: 'karmatic_arcaderegular';
     font-size:48px;
+    margin-bottom: 0;
 }
 
 .options{
@@ -119,4 +120,25 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 50%;
     background: rgb(255, 62, 62);
     cursor: ew-resize;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+    transform: scale(1.0);
+    transition: all 0.3s ease;
+}
+
+a:visited{
+    color:black;
+}
+
+i{
+    transform: scale(1.0);
+    transition: all 0.3s ease;
+
+}
+
+i:hover{
+    transform: scale(1.2);
 }
