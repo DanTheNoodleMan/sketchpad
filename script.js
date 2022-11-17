@@ -18,6 +18,7 @@ function updateSize(newSize){
 }
 
 
+
 const rgb = document.querySelector('.rgbMode');
 rgb.addEventListener('click', ()=>{
     rgbMode = !rgbMode;
@@ -40,7 +41,8 @@ function randomColor(){
 //TODO:
 
 const slider = document.getElementById("gridSize");
-console.log(slider.value);
+const sliderValue = document.querySelector('.sliderValue');
+
 
 const gridContainer = document.querySelector(".grid-container"); //select grid container
 
